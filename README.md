@@ -12,6 +12,12 @@ cd ../../test-network
 export PATH=${PWD}/../bin:$PATH
 export FABRIC_CFG_PATH=$PWD/../config/
 
+-- Persist the Environment Variables: If you want these environment variables to persist every time you start a new terminal, add the export commands to your ~/.bashrc or ~/.bash_profile:
+echo 'export PATH=${HOME}/fabric-samples/bin:$PATH' >> ~/.bashrc
+echo 'export FABRIC_CFG_PATH=${HOME}/fabric-samples/config/' >> ~/.bashrc
+source ~/.bashrc
+
+
 peer lifecycle chaincode package basic.tar.gz --path ../asset-transfer-basic/chaincode-go/ --lang golang --label basic_1.0
 
 export CORE_PEER_TLS_ENABLED=true
