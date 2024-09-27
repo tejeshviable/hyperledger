@@ -3,12 +3,15 @@
 # Deploying a smart contract on channel - https://hyperledger-fabric.readthedocs.io/en/latest/deploy_chaincode.html
 
 ./network.sh down
+
 ./network.sh up createChannel
 
 cd fabric-samples/asset-transfer-basic/chaincode-go
+
 GO111MODULE=on go mod vendor
 
 cd ../../test-network
+
 export PATH=${PWD}/../bin:$PATH
 
 export FABRIC_CFG_PATH=$PWD/../config/
