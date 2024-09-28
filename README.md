@@ -12,18 +12,26 @@ GO111MODULE=on go mod vendor
 
 cd ../../test-network
 
+We can either set the env variables for a session or persist for all sessions
+
+=============== Set the environment variables for a session - starts ======================
+
 export PATH=${PWD}/../bin:$PATH
 
 export FABRIC_CFG_PATH=$PWD/../config/
 
--- Persist the Environment Variables: If you want these environment variables to persist every time you start a new terminal, add the export commands to your ~/.bashrc or ~/.bash_profile:
+=================== Set the environment variables for a session - ends ===================
+# OR
+================= Persist the environment variables for all session - starts =============
+nano ~/.bashrc
 
-echo 'export PATH=${HOME}/fabric-samples/bin:$PATH' >> ~/.bashrc
+Add below at the end of the file
 
-echo 'export FABRIC_CFG_PATH=${HOME}/fabric-samples/config/' >> ~/.bashrc
+export PATH=${PWD}/../bin:$PATH
 
-source ~/.bashrc
+export FABRIC_CFG_PATH=$PWD/../config/
 
+================= Persist the environment variables for all session - ends ==================
 
 peer lifecycle chaincode package basic.tar.gz --path ../asset-transfer-basic/chaincode-go/ --lang golang --label basic_1.0
 
